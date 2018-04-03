@@ -45,9 +45,9 @@
         </div>
     </div>
 
-    {{retornoNovaTransferencia.mensagem}}
-
-
+    <div ng-if="retornoNovaTransferencia.mensagem != null" class="alert alert-danger">
+        <strong>Danger!</strong> {{retornoNovaTransferencia.mensagem}}
+    </div>
 
     <div class="panel-heading"><span class="lead">Agendamento transferências bancarias</span></div>
 

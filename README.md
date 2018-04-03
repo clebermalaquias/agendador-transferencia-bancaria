@@ -1,10 +1,9 @@
 
-#Agendamento transferência - Spring-Boot
+#Agendamento transferência bancária
 
-##Instruções para instalação
+##Instruções para utilização
 
-O projeto foi desenvolvido usando o Spring Boot para facilitar a instalação, que pode se feita
-de duas maneiras,usando uma IDE ou através de linha de comando.
+O projeto foi desenvolvido usando o Spring Boot para facilitar o processo desde o inicio da aplicação até o teste do mesmo.
 
 
 
@@ -31,17 +30,9 @@ Linha de comando:
 	$ mvn spring-boot:run
 
 
-Após esses passos o maven deve começar baixar as dependencias, e subir o Tomcat,
-com na imagem abaixo:
-
-
-
   	4 - Após o maven terminar de baixar as dependencias e subir o tomcat, você pode acessar no browser:
 
 	http://localhost:8080/
-
-Obs: Estou considerando que você tenha o maven no PATH do seu sistema operacional,
-e que não tenha nenhuma aplicação usando a porta 8080 do seu computador.
 
 
 IDE:
@@ -64,10 +55,6 @@ IDE:
 
 	http://localhost:8080/
 
-Obs: Estou considerando que não tenha nenhuma aplicação usando a porta 8080 do seu computador.
-
-
-
 
 
 ##Arquitetura
@@ -83,7 +70,7 @@ Obs: Estou considerando que não tenha nenhuma aplicação usando a porta 8080 d
 	Optei em usar o Java 8 pela facilidade para maninpulação de datas com o Chrono,
 	O Framework Spring pela simplicidade em criar serviços rest. Usei o AngularJs pela produtividade e fácil uso.
 
-	Nos testes unitários usei o Junit.
+	Nos testes unitários uso o Junit.
 
 ##Versões:
  
