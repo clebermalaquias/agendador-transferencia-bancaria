@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appTransferencia">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendamento Transferencia Bancaria</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+
+
+<div class="panel panel-default" ng-controller="transferenciaController">
+    <!-- Default panel contents -->
+
+
+
+    <h2>Novo Agendamento</h2>
+
+    <div class="row" >
+        <div class="col-md-3">
+            <form name="novaTransferenciaForm" id="novaTransferenciaForm">
+                <div class="form-group">
+                    <label for="contaOrigem">Conta Origem</label>
+                    <input id="contaOrigem" class="form-control" type="text" mask='99999-9' ng-model="transferencia.contaOrigem" required />
+                </div>
+                <div class="form-group">
+                    <label for="contaDestino">Conta Destino</label>
+                    <input class="form-control" type="text" ng-model="transferencia.contaDestino" mask='99999-9' required id="contaDestino" />
+                </div>
+                <div class="form-group">
+                    <label for="dataTransferencia">Data Transferência</label>
+                    <input class="form-control" type="text" ng-model="transferencia.dataTransferencia" mask='31/12/9999'  id="dataTransferencia"/>
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo Taxa</label>
+
+                    <select name="repeatSelect" id="tipo" ng-model="transferencia.tipo"  class="form-control">
+                        <option ng-repeat="t in listaTipoTaxa" value="{{t}}">{{t}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor</label>
+                    <input class="form-control" type="text" ng-model="transferencia.valor" required  id="valor"/>
+                </div>
+                <button class="btn btn-primary" ng-disabled="novaTransferenciaForm.$invalid || isUnchanged(transferencia)" id="add-new-btn" ng-click="novaTransferencia(transferencia)">Salvar</button></br>
+            </form>
+        </div>
+    </div>
+
+    {{retornoNovaTransferencia.mensagem}}
+
+
+
+    <div class="panel-heading"><span class="lead">Agendamento transferências bancarias</span></div>
+
+    <div class="tablecontainer">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Conta Origem</th>
+                <th>Conta Destino</th>
+                <th>Data Cadastro</th>
+                <th>Data Transferência</th>
+                <th>Tipo Taxa</th>
+                <th>Valor Taxa</th>
+                <th>Valor</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="t in transferencias">
+                <td><span ng-bind="t.id"></span></td>
+                <td><span ng-bind="t.contaOrigem"></span></td>
+                <td><span ng-bind="t.contaDestino"></span></td>
+                <td><span ng-bind="t.dataCadastroFormatada "></span></td>
+                <td><span ng-bind="t.dataTransferenciaFormatada "></span></td>
+                <td><span ng-bind="t.tipo"></span></td>
+                <td><span ng-bind="t.taxa | currency"></span></td>
+                <td><span ng-bind="t.valor | currency"></span></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+<script type="text/javascript" src="/js/angular.min.js"></script>
+<script type="text/javascript" src="/js/ngMask.min.js"></script>
+<script type="text/javascript" src="/js/angular-locale_pt-br.js"></script>
+
+<script type="text/javascript" src="/js/app.js"></script>
+</body>
+
+</html>
